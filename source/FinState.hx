@@ -93,7 +93,7 @@ class FinState extends MusicBeatState
     }
     override function update(elapsed:Float)
     {
-        if (FlxG.keys.justPressed.ENTER&&thanksforplaying.alpha==1&&canContinue)
+        if (FlxG.keys.justPressed.ENTER #if android || FlxG.android.justReleased.BACK #end &&thanksforplaying.alpha==1&&canContinue)
             {
                 MusicBeatState.switchState(new TitleState());
             }
