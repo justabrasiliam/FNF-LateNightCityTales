@@ -13,7 +13,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import openfl.utils.Assets as OpenFlAssets;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
-mimport flixel.util.FlxColor;
+import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import FlxVideo;
