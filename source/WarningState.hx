@@ -64,7 +64,7 @@ class WarningState extends MusicBeatState
     {        
         if(youCanPreesed)
         {
-            if(FlxG.keys.justPressed.ANY)
+            if(FlxG.keys.justPressed.ANY #if android || FlxG.android.justReleased.BACK #end)
             {
                 youCanPreesed=false;
                 FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
