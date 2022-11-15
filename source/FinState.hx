@@ -67,8 +67,7 @@ class FinState extends MusicBeatState
         jukeBoxSubText.alignment=LEFT;
         add(jukeBoxSubText);
 
-        fin=new FlxVideo(Paths.video("final"));
-        fin.finishCallback=function()
+        fin=new 
         {
             FlxTween.tween(thanksforplaying,{alpha:1},1.5,{onComplete:function(twn:FlxTween)
 				{
