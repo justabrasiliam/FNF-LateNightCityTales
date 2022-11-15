@@ -4,15 +4,15 @@ trailEnabledBF = false;
 timerStartedDad = false;
 timerStartedBF = false;
 
-trailLength = 12;
-trailDelay = 0.035;
+trailLength = 8;
+trailDelay = 0.05;
 
 
 function onEvent(name, value1, value2)
-	if name == "Toggle Trail2" then
+	if name == "Toggle Trail" then
 		if not (value1 == nil or value1 == '') and tonumber(value1) > 0 then
 			if not timerStartedDad then
-				runTimer('timerTrailDad2', trailDelay, 0);
+				runTimer('timerTrailDad', trailDelay, 0);
 				timerStartedDad = true;
 			end
 			trailEnabledDad = true;
@@ -23,7 +23,7 @@ function onEvent(name, value1, value2)
 
 		if not (value2 == nil or value2 == '') and tonumber(value2) > 0 then
 			if not timerStartedBF then
-				runTimer('timerTrailBF2', trailDelay, 0);
+				runTimer('timerTrailBF', trailDelay, 0);
 				timerStartedBF = true;
 			end
 			trailEnabledBF = true;
@@ -35,11 +35,11 @@ function onEvent(name, value1, value2)
 end
 
 function onTimerCompleted(tag, loops, loopsLeft)
-	if tag == 'timerTrailDad2' then
+	if tag == 'timerTrailDad' then
 		createTrailFrame('Dad');
 	end
 
-	if tag == 'timerTrailBF2' then
+	if tag == 'timerTrailBF' then
 		createTrailFrame('BF');
 	end
 end
@@ -78,7 +78,7 @@ function createTrailFrame(tag)
 		num = curTrailDad;
 		curTrailDad = curTrailDad + 1;
 		if trailEnabledDad then
-			color = getColorFromHex('C182FF');
+			color = getColorFromHex('8000FF');
 			image = getProperty('dad.imageFile')
 			frame = getProperty('dad.animation.frameName');
 			x = getProperty('dad.x');
@@ -93,13 +93,12 @@ function createTrailFrame(tag)
 
 	if num - trailLength + 1 >= 0 then
 		for i = (num - trailLength + 1), (num - 1) do
-			setProperty('psychicTrail'..tag..i..'.alpha', getProperty('psychicTrail'..tag..i..'.alpha') - (.8 / (trailLength - 1)));
+			setProperty('psychicTrail'..tag..i..'.alpha', getProperty('psychicTrail'..tag..i..'.alpha') - (0.6 / (trailLength - 1)));
 			if tag == 'Dad' then
-			setProperty('psychicTrail'..tag..i..'.y', getProperty('psychicTrail'..tag..i..'.y') - (30/ (trailLength - 1)));
-			setProperty('psychicTrail'..tag..i..'.x', getProperty('psychicTrail'..tag..i..'.x') - (30/ (trailLength - 1)));
-			setProperty('psychicTrail'..tag..i..'.scale.x', getProperty('psychicTrail'..tag..i..'.scale.x') + (.5/ (trailLength - 1)));
-			setProperty('psychicTrail'..tag..i..'.scale.y', getProperty('psychicTrail'..tag..i..'.scale.y') + (.5/ (trailLength - 1)));
-			--setBlendMode('psychicTrail'..tag..i, 'difference')
+			setProperty('psychicTrail'..tag..i..'.y', getProperty('psychicTrail'..tag..i..'.y') - (20/ (trailLength - 1)));
+			--setProperty('psychicTrail'..tag..i..'.x', getProperty('psychicTrail'..tag..i..'.x') - (50/ (trailLength - 1)));
+			setProperty('psychicTrail'..tag..i..'.scale.x', getProperty('psychicTrail'..tag..i..'.scale.x') + (0.3/ (trailLength - 1)));
+			setProperty('psychicTrail'..tag..i..'.scale.y', getProperty('psychicTrail'..tag..i..'.scale.y') + (0.3/ (trailLength - 1)));
 			end
 		end
 	end
@@ -115,7 +114,7 @@ function createTrailFrame(tag)
 		setProperty(trailTag..'.flipX', flipX);
 		setProperty(trailTag..'.alpha', 0.6);
 		setProperty(trailTag..'.color', color);
-		setObjectOrder(trailTag,15);
+		setObjectOrder(trailTag,6);
 		setBlendMode(trailTag, 'add');
 		addAnimationByPrefix(trailTag, 'stuff', frame, 0, false);
 		addLuaSprite(trailTag, false);
