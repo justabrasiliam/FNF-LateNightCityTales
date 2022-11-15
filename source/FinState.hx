@@ -67,7 +67,7 @@ class FinState extends MusicBeatState
         jukeBoxSubText.alignment=LEFT;
         add(jukeBoxSubText);
 
-        fin=new 
+         
         {
             FlxTween.tween(thanksforplaying,{alpha:1},1.5,{onComplete:function(twn:FlxTween)
 				{
