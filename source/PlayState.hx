@@ -65,6 +65,7 @@ import FunkinLua;
 import DialogueBoxPsych;
 import flixel.addons.editors.pex.FlxPexParser;
 import flixel.addons.text.FlxTypeText;
+import sys.io.File;
 #if sys
 import sys.FileSystem;
 #end
