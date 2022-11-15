@@ -150,10 +150,16 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 				optionsArray[i].setChild(valueText);
 			}
 			updateTextFrom(optionsArray[i]);
+	
 		}
 
 		changeSelection();
 		reloadCheckboxes();
+		
+		#if android
+                addVirtualPad(UP_DOWN, A);
+                #end
+		
 	}
 
 	var nextAccept:Int = 5;
