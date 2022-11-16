@@ -491,6 +491,10 @@ class TitleState extends MusicBeatState
 			initialized = true;
 
 		// credGroup.add(credTextShit);
+		
+		#if android
+                addVirtualPad(LEFT_FULL, A_B);
+                #end
 	}
 
 	function titleUpdate():Void
